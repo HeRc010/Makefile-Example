@@ -1,4 +1,4 @@
-IDIR =../inc
+IDIR =inc
 CC=g++
 CFLAGS=-std=c++0x -I$(IDIR)
 
@@ -13,7 +13,7 @@ DEPS = $(patsubst %, $(IDIR)/%, $(_DEPS))
 _OBJ = main.o test.o
 OBJ = $(patsubst %, $(ODIR)/%, $(_OBJ))
 
-$(ODIR)/%.o: %.cpp $(DEPS)
+$(ODIR)/%.o: src/%.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 exec: $(OBJ)
@@ -22,4 +22,4 @@ exec: $(OBJ)
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ exec
