@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+make test_runner
+./test_runner
+make clean
